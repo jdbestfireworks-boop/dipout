@@ -1,0 +1,136 @@
+{
+  "name": "Ride",
+  "type": "object",
+  "properties": {
+    "rider_email": {
+      "type": "string"
+    },
+    "driver_email": {
+      "type": "string"
+    },
+    "rider_phone": {
+      "type": "string",
+      "description": "Rider's phone number for contact"
+    },
+    "driver_phone": {
+      "type": "string",
+      "description": "Driver's phone number for contact"
+    },
+    "pickup_address": {
+      "type": "string"
+    },
+    "dropoff_address": {
+      "type": "string"
+    },
+    "pickup_lat": {
+      "type": "number"
+    },
+    "pickup_lng": {
+      "type": "number"
+    },
+    "dropoff_lat": {
+      "type": "number"
+    },
+    "dropoff_lng": {
+      "type": "number"
+    },
+    "driver_lat": {
+      "type": "number"
+    },
+    "driver_lng": {
+      "type": "number"
+    },
+    "rider_lat": {
+      "type": "number",
+      "description": "Rider's current GPS location (when enabled)"
+    },
+    "rider_lng": {
+      "type": "number",
+      "description": "Rider's current GPS location (when enabled)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "requested",
+        "accepted",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ],
+      "default": "requested"
+    },
+    "scheduled_for": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO datetime for a scheduled pickup. Null means immediate."
+    },
+    "distance_km": {
+      "type": "number"
+    },
+    "base_fare": {
+      "type": "number"
+    },
+    "surge_multiplier": {
+      "type": "number"
+    },
+    "fare": {
+      "type": "number"
+    },
+    "ai_pricing_reason": {
+      "type": "string"
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "card",
+        "cash"
+      ],
+      "default": "cash"
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "unpaid",
+        "paid"
+      ],
+      "default": "unpaid"
+    },
+    "payment_mode": {
+      "type": "string",
+      "enum": [
+        "mile",
+        "hour"
+      ],
+      "default": "mile",
+      "description": "Driver payment calculation mode: per mile or per hour"
+    },
+    "cancellation_fee": {
+      "type": "number",
+      "description": "Fee charged if ride is cancelled after driver accepted"
+    },
+    "cancelled_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the ride was cancelled"
+    },
+    "rider_rating": {
+      "type": "number",
+      "description": "Star rating given by rider (1\u20135)"
+    },
+    "rider_comment": {
+      "type": "string",
+      "description": "Short comment left by rider after the trip"
+    },
+    "declined_by": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of driver emails who declined this ride"
+    }
+  },
+  "required": [
+    "pickup_address",
+    "dropoff_address"
+  ]
+}
